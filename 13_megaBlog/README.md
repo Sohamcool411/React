@@ -56,3 +56,34 @@ This function wraps your form submission handler. When the form is submitted, it
 ### ...register spread syntax:
 
 This spread syntax ensures that the necessary props are passed to your input elements, including name, onChange, and onBlur.
+
+### Learn more about how to use RTE from tinymce docs.
+
+### also check how to use ' Control , watch ,setValue , getValues' from useForm(). e.g in Postform.jsx and RTE.jsx
+
+
+# functioning 
+
+Whenever we login we call the appwrite backend service to give us a session and through that session we extract all the userData and store it in our store.js. 
+
+Then we can use the data from this store wherever we need it. 
+
+Similarly when we logout we just delete that session and set the store values of usedata to null.
+
+# functioning in PostForm.jsx
+
+First we check if the user is trying to create a new post or update an existing post.
+
+if the user is editing the existing post set the default values of useForm to the values of post such as title, status , content etc.
+
+else set the values to empty ('').
+
+## uploading or editing file.
+
+if post exists then first upload file to our storage using appwrite service uploadFile.
+
+then we delete the featuredImage id from post data , and update the new featuredImage value in data by using appwrite service updatePost.
+
+else if the post does not already exist we just create a new post and upload the new file to storage.
+
+
